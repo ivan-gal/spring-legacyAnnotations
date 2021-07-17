@@ -1,6 +1,7 @@
 package com.example.springdemoannotations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -8,9 +9,7 @@ public class FootballCoach implements Coach{
 
     private FortuneService myFortuneService;
 
-    @Autowired
-    public FootballCoach(FortuneService myFortuneService) {
-        this.myFortuneService = myFortuneService;
+    public FootballCoach() {
     }
 
     @Override
@@ -22,4 +21,12 @@ public class FootballCoach implements Coach{
     public String getDailyFortune() {
         return myFortuneService.getFortune();
     }
+
+    @Autowired
+    @Qualifier("happyFortuneService")
+    public void setMyFortuneService(FortuneService myFortuneService) {
+        System.out.println("helooo");
+        this.myFortuneService = myFortuneService;
+    }
+
 }

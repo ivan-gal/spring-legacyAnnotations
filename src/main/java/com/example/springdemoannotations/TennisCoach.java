@@ -22,4 +22,6 @@ public class TennisCoach implements Coach{
     public String getDailyFortune() {
         return myFortuneService.getFortune();
     }
+
+
 }
